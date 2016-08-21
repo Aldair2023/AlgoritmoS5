@@ -5,6 +5,8 @@
  */
 package AlgoritmoSecuencial;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author aldair
@@ -17,6 +19,7 @@ public class Ejercicio5 extends javax.swing.JFrame {
     public Ejercicio5() {
         initComponents();
         this.setLocationRelativeTo(null);
+        txtSaldo.requestFocusInWindow();
         
     }
 
@@ -92,11 +95,21 @@ public class Ejercicio5 extends javax.swing.JFrame {
         cmdBorrar.setBackground(new java.awt.Color(0, 0, 102));
         cmdBorrar.setForeground(new java.awt.Color(255, 255, 255));
         cmdBorrar.setText("Borrar");
+        cmdBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdBorrarActionPerformed(evt);
+            }
+        });
         jPanel1.add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 320, 70, -1));
 
         cmdCalcular.setBackground(new java.awt.Color(0, 0, 102));
         cmdCalcular.setForeground(new java.awt.Color(255, 255, 255));
         cmdCalcular.setText("Calcular");
+        cmdCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdCalcularActionPerformed(evt);
+            }
+        });
         jPanel1.add(cmdCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, -1, -1));
         jPanel1.add(txtMontoT, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 170, 30));
         jPanel1.add(txtCA, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 140, 30));
@@ -107,6 +120,12 @@ public class Ejercicio5 extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
         jLabel8.setText("Saldo");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
+
+        txtSaldo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSaldoKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtSaldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 240, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\aldair\\Desktop\\istock_000019699924small.jpg")); // NOI18N
@@ -130,8 +149,67 @@ public class Ejercicio5 extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         System.exit(0);
-        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
+        
+        double res1, res2, res3, res4, res5, montF, montoI;
+        
+        if(txtSaldo.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(null,"por favor ingrese su saldo", "ERROR",JOptionPane.WARNING_MESSAGE);
+        }else{
+        
+        try{    
+        montoI=Double.parseDouble(txtSaldo.getText());
+        
+        res1=(montoI*0.01);
+        res2=(montoI*0.04);
+        res3=(montoI*0.005);
+        res4=(montoI*0.05);
+        
+        montF=montoI-res1-res2-res3-res4;
+        
+        txtSaldo.setText(""+montoI);
+        txtPP.setText(""+res1);
+        txtSS.setText(""+res2);
+        txtSF.setText(""+res3);
+        txtCA.setText(""+res4);
+        
+        txtMontoT.setText(""+montF);
+        
+    }//GEN-LAST:event_cmdCalcularActionPerformed
+
+        catch(Exception txtSaldo){
+            JOptionPane.showMessageDialog(null ,"el valor ingresa en el saldo es incorrecto, por favor corregir","ERROR",JOptionPane.ERROR_MESSAGE);
+        }
+        }
+    }
+        
+    private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
+       
+        txtSaldo.setText("");
+        txtPP.setText("");
+        txtSS.setText("");
+        txtSF.setText("");
+        txtCA.setText("");
+        txtMontoT.setText("");
+        
+        txtSaldo.requestFocusInWindow();
+        
+                
+        
+        
+    }//GEN-LAST:event_cmdBorrarActionPerformed
+
+    private void txtSaldoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSaldoKeyTyped
+        char c=evt.getKeyChar();
+        
+        if(!Character.isDigit(evt.getKeyChar())&& evt.getKeyChar() != '.'){
+            getToolkit();
+            
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtSaldoKeyTyped
 
     /**
      * @param args the command line arguments
