@@ -163,7 +163,7 @@ public class Ejercicio5 extends javax.swing.JFrame {
 
     private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
         
-        double res1, res2, res3, res4, res5, montF, montoI;
+        double res1, res2, res3, res4, montF, montoI;
         
         if(txtSaldo.getText().trim().isEmpty()){
             JOptionPane.showMessageDialog(null,"por favor ingrese su saldo", "ERROR",JOptionPane.WARNING_MESSAGE);
@@ -189,7 +189,7 @@ public class Ejercicio5 extends javax.swing.JFrame {
         
     }//GEN-LAST:event_cmdCalcularActionPerformed
 
-        catch(Exception txtSaldo){
+        catch(Exception f){
             JOptionPane.showMessageDialog(null ,"el valor ingresa en el saldo es incorrecto, por favor corregir","ERROR",JOptionPane.ERROR_MESSAGE);
         }
         }
@@ -212,8 +212,6 @@ public class Ejercicio5 extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdBorrarActionPerformed
 
     private void txtSaldoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSaldoKeyTyped
-        
-        
         if(!Character.isDigit(evt.getKeyChar())&& evt.getKeyChar() != '.'){
             getToolkit();
             
