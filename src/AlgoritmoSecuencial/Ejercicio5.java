@@ -111,10 +111,20 @@ public class Ejercicio5 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(cmdCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, -1, -1));
+
+        txtMontoT.setEditable(false);
         jPanel1.add(txtMontoT, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 170, 30));
+
+        txtCA.setEditable(false);
         jPanel1.add(txtCA, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 140, 30));
+
+        txtPP.setEditable(false);
         jPanel1.add(txtPP, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 170, 30));
+
+        txtSS.setEditable(false);
         jPanel1.add(txtSS, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 150, 30));
+
+        txtSF.setEditable(false);
         jPanel1.add(txtSF, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 170, 30));
 
         jLabel8.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
@@ -202,7 +212,7 @@ public class Ejercicio5 extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdBorrarActionPerformed
 
     private void txtSaldoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSaldoKeyTyped
-        char c=evt.getKeyChar();
+        
         
         if(!Character.isDigit(evt.getKeyChar())&& evt.getKeyChar() != '.'){
             getToolkit();
